@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
@@ -137,14 +138,14 @@ public class FlutterSoundPlugin implements MethodCallHandler, PluginRegistry.Req
     Log.d(TAG, "startRecorder");
 
     if (path == null) {
-      path = AudioModel.DEFAULT_FILE_LOCATION;
+      path = Environment.getExternalStorageDirectory().getPath() + "/default.m4a"; //AudioModel.DEFAULT_FILE_LOCATION;
     }
 
     if (this.model.getMediaRecorder() == null) {
       this.model.setMediaRecorder(new MediaRecorder());
       this.model.getMediaRecorder().setAudioSource(MediaRecorder.AudioSource.MIC);
       this.model.getMediaRecorder().setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-      this.model.getMediaRecorder().setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+      this.model.getMediaRecorder().setAudioEncoder(MediaRecorder.AudioEncoder.AAC_ELD);
       this.model.getMediaRecorder().setAudioChannels(numChannels);
       this.model.getMediaRecorder().setAudioSamplingRate(sampleRate);
       this.model.getMediaRecorder().setOutputFile(path);
