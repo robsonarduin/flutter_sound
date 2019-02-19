@@ -147,7 +147,9 @@ public class FlutterSoundPlugin implements MethodCallHandler, PluginRegistry.Req
       this.model.getMediaRecorder().setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
       this.model.getMediaRecorder().setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
       this.model.getMediaRecorder().setAudioChannels(numChannels);
-      this.model.getMediaRecorder().setAudioSamplingRate(sampleRate);
+//      this.model.getMediaRecorder().setAudioSamplingRate(sampleRate);
+      this.model.getMediaRecorder().setAudioEncodingBitRate(128000);
+      this.model.getMediaRecorder().setAudioSamplingRate(96000);
       this.model.getMediaRecorder().setOutputFile(path);
     }
 
