@@ -143,7 +143,7 @@ public class FlutterSoundPlugin implements MethodCallHandler, PluginRegistry.Req
 
     if (this.model.getMediaRecorder() == null) {
       this.model.setMediaRecorder(new MediaRecorder());
-      this.model.getMediaRecorder().setAudioSource(MediaRecorder.AudioSource.MIC);
+      this.model.getMediaRecorder().setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
       this.model.getMediaRecorder().setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
       this.model.getMediaRecorder().setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
       this.model.getMediaRecorder().setAudioChannels(numChannels);
